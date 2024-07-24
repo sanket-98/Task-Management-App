@@ -1,0 +1,56 @@
+
+{% load static %}
+
+<html>
+  
+    <head>
+
+        <meta charset="utf-8" />
+
+        <meta name="viewport" content="width-device-width, initial-scale=1, maximum-scale=1"/>
+
+        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/solar/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+        <title>Taskly | View Task</title>
+
+    </head>
+
+    {% include 'profile/base.html' %}
+
+    <br>
+
+        <h3 class="text-center"> View Tasks </h3>
+        <hr>
+        
+        {% for tsk in task %}
+
+            <div class="container bg-white shadow-md p-5 form-layout" style="margin-top: 20px;">
+
+
+                <h3> {{ tsk.title }} </h3>
+
+
+                {{ tsk.content }}
+                <br><br><br>
+
+                <a class="btn btn-info navbar-btn" type="button" href="{% url 'update-task' tsk.id %}">Update Task</a>
+                <br><br>
+                
+                <a class="btn btn-danger navbar-btn" type="button" href="{% url 'delete-task' tsk.id %}">Delete Task</a>
+                <br>
+
+
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+    <br>
+   
+</html>
+
+
